@@ -80,6 +80,9 @@ Issues = "https://github.com/joelgombin/spotireachy/issues"
 spotireachy = "src.main:main"
 spotireachy-index = "src.index_library:main"
 
+[project.entry-points."reachy_mini.apps"]
+spotireachy = "src.app:SpotireachyApp"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

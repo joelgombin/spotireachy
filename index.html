@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotireachy - Voice Music Player for Reachy Mini</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <h1>🎵 Spotireachy</h1>
+                <p class="tagline">Voice-Controlled Music Player for Reachy Mini</p>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Faites danser votre Reachy Mini au rythme de la musique ! 🕺</h2>
+                <p class="hero-description">
+                    Spotireachy transforme votre Reachy Mini en DJ intelligent.
+                    Parlez-lui, et il trouvera et jouera vos chansons préférées
+                    tout en dansant synchronisé au BPM !
+                </p>
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <h3>✨ Fonctionnalités</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h4>Reconnaissance Vocale</h4>
+                    <p>Commande vocale locale avec Whisper - fonctionne offline</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h4>Recherche Sémantique</h4>
+                    <p>Trouve la bonne chanson même avec des commandes approximatives</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗣️</div>
+                    <h4>Confirmation TTS</h4>
+                    <p>Reachy confirme vocalement avant de jouer</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💃</div>
+                    <h4>Danse Synchronisée</h4>
+                    <p>Mouvements au rythme du BPM de la chanson</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h4>Extraction BPM</h4>
+                    <p>Analyse automatique du tempo avec librosa</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h4>Multi-formats</h4>
+                    <p>Support MP3, WAV, FLAC, M4A</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo -->
+        <section class="demo">
+            <h3>🎬 Comment ça marche</h3>
+            <div class="demo-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Vous parlez</h4>
+                    <p>"Let it be"</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Reachy cherche</h4>
+                    <p>Recherche sémantique dans votre bibliothèque</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Reachy demande</h4>
+                    <p>"Voulez-vous écouter Let It Be des Beatles ?"</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Vous confirmez</h4>
+                    <p>"Oui !"</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4>Reachy lance</h4>
+                    <p>Musique + danse ! 🎉</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installation -->
+        <section class="installation">
+            <h3>🚀 Installation</h3>
+            <div class="install-methods">
+                <div class="install-card primary">
+                    <h4>Via Dashboard Reachy Mini (Recommandé)</h4>
+                    <ol>
+                        <li>Ouvrez le dashboard Reachy Mini</li>
+                        <li>Cliquez sur "App Store"</li>
+                        <li>Cherchez "Spotireachy"</li>
+                        <li>Cliquez sur "Installer"</li>
+                    </ol>
+                </div>
+
+                <div class="install-card">
+                    <h4>Via uv (rapide ⚡)</h4>
+                    <pre><code># Cloner le projet
+git clone https://huggingface.co/spaces/YOUR_USERNAME/spotireachy
+cd spotireachy
+
+# Installer avec uv
+uv sync
+
+# Indexer votre musique
+cp ~/Music/*.mp3 music/
+uv run spotireachy-index
+
+# Lancer
+uv run spotireachy</code></pre>
+                </div>
+
+                <div class="install-card">
+                    <h4>Via Make</h4>
+                    <pre><code>make setup  # Installation complète
+make index  # Indexer la bibliothèque
+make run    # Lancer l'application</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="tech-stack">
+            <h3>🛠️ Technologies</h3>
+            <div class="tech-grid">
+                <span class="tech-badge">Reachy Mini SDK</span>
+                <span class="tech-badge">Whisper</span>
+                <span class="tech-badge">librosa</span>
+                <span class="tech-badge">Sentence Transformers</span>
+                <span class="tech-badge">FAISS</span>
+                <span class="tech-badge">pygame</span>
+                <span class="tech-badge">uv</span>
+                <span class="tech-badge">pyttsx3</span>
+            </div>
+        </section>
+
+        <!-- Requirements -->
+        <section class="requirements">
+            <h3>📋 Prérequis</h3>
+            <ul>
+                <li>Reachy Mini (Lite ou Wireless)</li>
+                <li>Python 3.8+</li>
+                <li>Fichiers musicaux locaux (MP3, WAV, FLAC, M4A)</li>
+                <li>Microphone fonctionnel</li>
+            </ul>
+        </section>
+
+        <!-- Links -->
+        <section class="links">
+            <h3>🔗 Liens Utiles</h3>
+            <div class="links-grid">
+                <a href="https://github.com/joelgombin/spotireachy" class="link-button" target="_blank">
+                    <span>📦 GitHub Repository</span>
+                </a>
+                <a href="https://github.com/joelgombin/spotireachy/blob/main/README.md" class="link-button" target="_blank">
+                    <span>📖 Documentation</span>
+                </a>
+                <a href="https://github.com/joelgombin/spotireachy/blob/main/QUICKSTART.md" class="link-button" target="_blank">
+                    <span>⚡ Quick Start</span>
+                </a>
+                <a href="https://github.com/joelgombin/spotireachy/issues" class="link-button" target="_blank">
+                    <span>🐛 Report Issue</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                Made with ❤️ for Reachy Mini |
+                <a href="https://github.com/joelgombin/spotireachy/blob/main/LICENSE">MIT License</a>
+            </p>
+            <p class="footer-note">
+                🎵 Transformez votre Reachy Mini en jukebox intelligent !
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

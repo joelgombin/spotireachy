@@ -1,0 +1,44 @@
+# Configuration pour Spotireachy
+
+# Reachy Mini connection
+reachy:
+  ip: "localhost"  # IP du Reachy Mini, "localhost" si en local
+  port: 50051      # Port par défaut
+
+# Whisper voice recognition
+whisper:
+  model: "base"    # Options: tiny, base, small, medium, large
+  language: "fr"   # Langue principale (fr, en, etc.)
+  device: "cpu"    # "cpu" ou "cuda" si GPU disponible
+
+# Music library
+music:
+  library_path: "./music"           # Chemin vers vos fichiers musicaux
+  supported_formats: [".mp3", ".wav", ".flac", ".m4a"]
+
+# Semantic search
+search:
+  model: "paraphrase-multilingual-MiniLM-L12-v2"  # Modèle d'embeddings multilingue
+  top_k: 3                         # Nombre de résultats à considérer
+  confidence_threshold: 0.6        # Seuil de confiance minimum
+
+# Audio playback
+audio:
+  volume: 0.8                      # Volume par défaut (0.0 à 1.0)
+
+# Dance settings
+dance:
+  enable_dance: true               # Activer/désactiver la danse
+  choreography_path: null          # Chemin vers chorégraphies personnalisées (null = auto)
+  bpm_tolerance: 10                # Tolérance BPM pour sélection chorégraphie (±)
+
+# TTS (Text-to-Speech)
+tts:
+  language: "fr"                   # Langue pour TTS
+  rate: 150                        # Vitesse de parole (mots/minute)
+
+# Data paths
+data:
+  embeddings_cache: "./data/embeddings.npy"
+  metadata_cache: "./data/metadata.json"
+  index_cache: "./data/faiss.index"

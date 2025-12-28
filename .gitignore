@@ -23,6 +23,10 @@ wheels/
 .installed.cfg
 *.egg
 
+# uv
+.venv/
+uv.lock
+
 # IDE
 .vscode/
 .idea/

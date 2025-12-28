@@ -15,32 +15,66 @@ Application de contrôle vocal pour lancer de la musique et faire danser votre R
 
 - Reachy Mini (version Lite ou Wireless)
 - Python 3.8+
+- [uv](https://github.com/astral-sh/uv) (recommandé) ou pip
 - Connexion au Reachy Mini via réseau
 
 ## Installation
 
-1. Cloner le dépôt :
+### Avec uv (recommandé - ultra-rapide ⚡)
+
+1. Installer uv si ce n'est pas déjà fait :
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# ou avec pip : pip install uv
+```
+
+2. Cloner le dépôt :
 ```bash
 git clone <repo-url>
 cd spotireachy
 ```
 
-2. Installer les dépendances :
+3. Installer les dépendances avec uv :
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
-3. Copier vos fichiers musicaux dans le dossier `music/` :
+4. Copier vos fichiers musicaux dans le dossier `music/` :
 ```bash
 mkdir -p music
 # Copier vos MP3/WAV/FLAC dans ce dossier
 ```
 
-4. Configurer l'application :
+5. Configurer l'application :
 ```bash
 cp config.example.yaml config.yaml
 # Éditer config.yaml avec vos paramètres
 ```
+
+### Avec pip (alternative)
+
+```bash
+git clone <repo-url>
+cd spotireachy
+pip install -r requirements.txt
+# Puis suivre les étapes 4-5 ci-dessus
+```
+
+### Avec Make/Just (encore plus simple)
+
+```bash
+# Avec Make
+make setup  # Installation complète (uv + config)
+make index  # Indexer la bibliothèque
+make run    # Lancer l'application
+
+# Avec Just (alternative moderne)
+just setup
+just index
+just run
+```
+
+Voir `make help` ou `just` pour toutes les commandes disponibles.
 
 ## Configuration
 
@@ -56,6 +90,10 @@ cp config.example.yaml config.yaml
 
 Indexer votre bibliothèque musicale :
 ```bash
+# Avec uv
+uv run spotireachy-index
+
+# Ou avec python directement
 python src/index_library.py
 ```
 
@@ -68,6 +106,10 @@ Cela va :
 ### Lancer l'application
 
 ```bash
+# Avec uv
+uv run spotireachy
+
+# Ou avec python directement
 python src/main.py
 ```
 
@@ -118,11 +160,12 @@ spotireachy/
 - Essayer un modèle Whisper plus petit (tiny, base)
 
 ### Pas de musique trouvée
-- Relancer l'indexation : `python src/index_library.py`
+- Relancer l'indexation : `uv run spotireachy-index` (ou `python src/index_library.py`)
 - Vérifier que les fichiers sont bien dans le dossier `music/`
 
 ## Technologies utilisées
 
+- **uv** : Gestionnaire de paquets Python ultra-rapide
 - **Reachy Mini SDK** : Contrôle du robot
 - **Whisper** : Reconnaissance vocale locale
 - **librosa** : Analyse audio et extraction BPM

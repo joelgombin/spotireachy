@@ -6,17 +6,30 @@ Guide pour configurer et lancer rapidement votre lecteur musical vocal pour Reac
 
 - Reachy Mini (Lite ou Wireless)
 - Python 3.8 ou plus récent
+- [uv](https://github.com/astral-sh/uv) (recommandé) ou pip
 - Fichiers musicaux (MP3, WAV, FLAC, M4A)
 
 ## 🚀 Installation en 5 minutes
 
-### 1. Installer les dépendances
+### 1. Installer uv et les dépendances
+
+**Avec uv (recommandé ⚡ - beaucoup plus rapide) :**
+
+```bash
+# Installer uv si nécessaire
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Installer toutes les dépendances
+uv sync
+```
+
+**Avec pip (alternative) :**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**Note** : L'installation peut prendre quelques minutes car elle télécharge les modèles Whisper et Sentence Transformers.
+**Note** : L'installation peut prendre quelques minutes car elle télécharge les modèles Whisper et Sentence Transformers. Avec uv, c'est beaucoup plus rapide !
 
 ### 2. Ajouter votre musique
 
@@ -35,6 +48,10 @@ cp ~/Music/*.mp3 music/
 Lancez le script d'indexation pour analyser vos chansons :
 
 ```bash
+# Avec uv (recommandé)
+uv run spotireachy-index
+
+# Ou avec python directement
 python src/index_library.py
 ```
 
@@ -60,6 +77,10 @@ Pour un Reachy Mini local, laissez `localhost`.
 ### 5. Lancer l'application
 
 ```bash
+# Avec uv (recommandé)
+uv run spotireachy
+
+# Ou avec python directement
 python src/main.py
 ```
 
@@ -126,7 +147,8 @@ dance:
 
 ➡️ **Solution** : Vous devez d'abord indexer votre bibliothèque :
 ```bash
-python src/index_library.py
+uv run spotireachy-index
+# ou : python src/index_library.py
 ```
 
 ### "No tracks found in library"
@@ -140,7 +162,8 @@ ls music/  # Doit afficher vos fichiers MP3/WAV/FLAC
 
 ➡️ **Solution** : Vérifiez que pygame est bien installé :
 ```bash
-pip install pygame --upgrade
+uv sync  # Réinstalle toutes les dépendances
+# ou : pip install pygame --upgrade
 ```
 
 ### La reconnaissance vocale ne fonctionne pas
